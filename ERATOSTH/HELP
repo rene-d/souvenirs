@@ -1,0 +1,15 @@
+CRIBLE.PAS est le programme qu'il y a dans le livre 'programmation
+scientifique en turbo pascal' de Thierry Lachand-Robert.
+
+CRIBLER.PAS est un programme directement inspiré du précédent pour
+établir le fichier ERATOSTH qui contient, sous forme condensée, la
+liste des nombres premiers inférieurs à 500000 environ.
+
+PREMIERS.PAS est une petite unité permettant d'exploiter facilement
+le fichier ERATOSTH.
+
+SPIRALE?.PAS sont deux programmes extrêmement voisins qui tracent à
+l'écran la "spirale des nombres premiers" (voir SVM n°82).
+
+PREMIER.BAS est un petit programme basic qui teste si un nombre est
+premier ou non.

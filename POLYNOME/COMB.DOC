@@ -1,0 +1,14 @@
+Documentation de l'unité :        COMB.PAS
+
+version 1.0 - Samedi 10/03/90
+
+Deux procédures sont disponibles :
+
+    function Cnp(n, p : word) : longint;
+
+    function Fact(n : word) : longint;
+
+
+aux noms assez explicites.
+(Cnp : calcul amélioré en performances de C(n,p) )
+(Fact : calcul non-récursif des factorielles )

@@ -1,0 +1,20 @@
+1 ' ce petit programme calcule le caractère
+2 ' de primauté d'un nombre quelconque
+3 '
+10 INPUT"a=";A
+20 N=2
+30 IF A/N-INT(A/N)=0 THEN GOSUB 500:GOTO 30
+40 N=N+1
+50 IF N<=3 THEN 30
+60 N=5:M=2:J=-2
+70 IF A/N-INT(A/N)=0 THEN GOSUB 500:GOTO 70
+80 N=N+M
+90 J=-J
+100 M=M+J
+110 IF N>SQR(A) THEN GOTO 150
+120 GOTO 70
+150 IF A<>1 THEN PRINT A;
+160 PRINT:GOTO 10
+500 PRINT N;
+510 A=A/N
+520 RETURN

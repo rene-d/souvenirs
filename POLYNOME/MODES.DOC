@@ -1,0 +1,67 @@
+DOCUMENTATION DE L'UNITE       MODES
+
+version 1.5 - René DEVICHI - Le Luc (c) 1990
+
+
+
+I. Description générale
+
+   L'affichage de réels par Turbo Pascal n'est guère évolué. Ce module
+permet  essentiellement de convertir  en une chaîne un réel suivant le
+mode en cours. Les modes disponibles sont :
+   STD : affichage de tous les chiffres, sauf s'il est trop important.
+Dans ce cas, c'est l'affichage normal qui est requis.
+   FIX : affichage de n décimales après la virgule.
+   SCI : mode scientifique "virgule flottante" avec n+1 chiffres.
+   ENG : même que SCI, mais  l'exposant est toujours un multiple de 3.
+
+   Le format d'affichage  est rigoureusement  le même que  celui d'une
+HP 28S, dans  la limite des  décimales et de l'exposant. Notamment, il
+n'y a pas de zéro avant le point s'il est seul.
+
+   Le mode par défaut est STD.
+
+
+II. Variables globales
+
+   Elles sont utilisables, mais  non recommandées d'utilisation, sauf,
+éventuellement,  pour lecture. Une  valeur arbitraire  entraînerait un
+affichage peut-être folklorique.
+
+aa_mode (integer) : définit le mode d'affichage courant.
+  0: mode STD           2: mode SCI
+  1: mode FIX           3: mode ENG
+
+aa_forme (integer) : pour les modes FIX, SCI et ENG, est le nombre
+de décimales affichées.
+
+
+III. Procédures et Fonctions
+
+   1  function  Mant(x:real):string;
+      function  Xpon(x:real):string;
+Retourne respectivement la mantisse et l'exposant du nombre réel x.
+(inspirées par la HP 28S)
+
+   2  function  Form(x:real):string;
+Retourne le réel formaté, selon le mode courant.
+
+   3  function  Rnd(x:real):real;
+Arrondis le réel selon le mode en cours.
+
+   4  procedure Fix(n:byte);
+      procedure Std;
+      procedure Sci(n:byte);
+      procedure Eng(n:byte);
+Positionne le mode d'affichage courant.
+
+   5  function StrC(r,i:real);
+Convertit le complexe en une chaîne de caractères "formatée".
+
+   6  procedure EcritR(r:real);
+      procedure EcritC(r,i:real);
+      procedure EcritRln(r:real);
+      procedure EcritCln(r,i:real);
+Affiche à l'écran des réels ou  des complexes. 'ln' à la fin du nom de
+la procédure indique un 'retour charriot' après le nombre.
+

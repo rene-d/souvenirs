@@ -1,0 +1,80 @@
+unit POLYNM;   (*************  PARTIE INTERFACE UNIQUEMENT  **************)
+
+{ calcul sur les polynômes - version 1.3        }
+{ TURBO PASCAL 4.0 et 5.0                       }
+{ René DEVICHI , 21 - 22 décembre 1989 , Le LUC }
+{         .... année 1990 pour le développement }
+
+(* Notice: rappel du type POLYNOME
+Ce type est un enregistrement qui contient DEG (integer) qui
+est le degré du polynôme (-1=polynôme nul); COEF
+(array[0..MaxPoly] of real), COEF[0] est le coefficient de plus
+haut degré. ELIMINE(p) met à jour DEG et COEF.
+Autres rappels: Θ (chr(233)) est le polynôme nul
+*)
+
+
+interface
+
+uses
+  CRT,COMB;                      { gestion de l'écran et du clavier }
+
+const
+  MaxPoly     = 50;        { degré maximal des polynômes                    }
+  zero : real = 1E-7;      { valeur "théorique" du zéro (par exemple: 1E-8) }
+
+
+type
+  coefficients=array[0..MaxPoly] of real;
+  polynome=record
+                 coef:coefficients;
+                 deg:integer;
+           end;
+
+
+var
+  pn_erreur    : integer;          { variable d'erreur de l'unité       }
+  pn_fix       : byte;             { nombre de décimales pour affichage }
+  pn_coefsnuls : boolean;
+  pn_espace    : boolean;
+  pn_star      : boolean;
+
+
+
+procedure Nul(var p:polynome);
+procedure Elimine(var p:polynome);
+procedure Chaine(s:string;var p:polynome);
+procedure Saisie(var p:polynome);
+procedure Mode_Affichage(cn,es,st:byte);
+function StrP(p:polynome;ind:string):string;
+procedure Affiche(p:polynome;ind:string);
+procedure AfficheLn(p:polynome;ind:string);
+procedure Binome(var p:polynome;n:integer;a:real);
+procedure Produit(p,q:polynome;var r:polynome);
+procedure Divise(p,q:polynome;var s,r:polynome);
+procedure Addition(p,q:polynome;var r:polynome);
+procedure Oppose(var p:polynome);
+procedure Unitaire(var p:polynome);
+procedure PGCD(p,q:polynome;var r:polynome);
+procedure PPCM(p,q:polynome;var r:polynome);
+procedure Constante(var p:polynome;x:real);
+procedure Derive(var p:polynome);
+procedure Integre(var p:polynome);
+procedure Puissance(var p:polynome;n:integer);
+procedure Prodr(var p:polynome;a:real);
+procedure Addr(var p:polynome;a:real);
+function Form(x:real):string;
+procedure Fix(n:byte);
+function Egalite(p,q:polynome):boolean;
+function Valeur(p:polynome;x:real):real;
+function Integrale(p:polynome;a,b:real):real;
+procedure Tcheb(var p:polynome;n,e:integer);
+procedure Divcrois(p,q:polynome;n:word;var s,r:polynome);
+procedure Prodx(var p:polynome;n:integer);
+procedure Compose(p,q:polynome;var r:polynome);
+procedure Translate(var p:polynome;a:real);
+procedure Deg1(var p:polynome;a,b:real);
+procedure Deg2(var p:polynome;a,b,c:real);
+
+
+implementation

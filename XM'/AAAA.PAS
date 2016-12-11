@@ -24,4 +24,4 @@ begin
   end;
   readln;
   closegraph;
-end.
+end.

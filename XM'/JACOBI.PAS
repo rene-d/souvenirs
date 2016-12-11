@@ -2,7 +2,7 @@ program Matrices_de_Jacobi;
 {$n+}
 
 uses
-  crt,matrices;      { inclut la gestion de l'‚cran et l'unit‚ Matrices }
+  crt,matrices;      { inclut la gestion de l'Ã©cran et l'unitÃ© Matrices }
 
 type
   real=extended;
@@ -30,7 +30,7 @@ begin
         end;
 end;
 
-{ norme sup. de la diff‚rence de deux matrices }
+{ norme sup. de la diffÃ©rence de deux matrices }
 function norme_bis(var a,b:matrice):real;
 var i,j:word; n:real;
 begin
@@ -64,7 +64,7 @@ begin
     produit_carree(a,omega,tmp);  { tmp=a.omega }
     omega[p,q]:=-sin(theta);   { on transpose omega }
     omega[q,p]:=sin(theta);
-    produit_carree(omega,tmp,tmp);  {omega est en fait la transpos‚e  }
+    produit_carree(omega,tmp,tmp);  {omega est en fait la transposÃ©e  }
                                     { tmp=t_omega.tmp=t_omega.a.omega }
     n:=norme_bis(a,tmp);
     a:=tmp;
@@ -97,13 +97,13 @@ var
 begin
   clrscr;
   repeat
-    write('ordre des matrices carr‚es : '); readln(ordre);
+    write('ordre des matrices carrÃ©es : '); readln(ordre);
     if ordre<=0 then exit;  { fin du programme }
-    write('matrice al‚atoire (o/n) ? '); readln(rnd);
+    write('matrice alÃ©atoire (o/n) ? '); readln(rnd);
     if upcase(rnd)='O' then matrice_symetrique_aleatoire(a)
     else entree_carree_symetrique(a);
     assigncrt(f);
-    { assign(f,'prn'); { pour envoyer le r‚sultat … l'imprimante }
+    { assign(f,'prn'); { pour envoyer le rÃ©sultat Ã  l'imprimante }
     rewrite(f);
     { write(f,#27#15); { si imprimante : 136 colonnes }
     writeln(f,'Matrice A :');
@@ -122,16 +122,16 @@ begin
         if j<>ordre then write(f,c[j,i]:16:11,',')
         else writeln(f,c[j,i]:16:11,')');
     end;
-    writeln(f,#13#10,'nombre d''it‚rations : ',it);
+    writeln(f,#13#10,'nombre d''itÃ©rations : ',it);
     writeln(f);
     for i:=1 to ordre do
     begin
       for j:=1 to ordre do tmp[j,1]:=c[j,i];  { tmp=vecteur propre no i }
       produit(a,tmp,tmp,ordre,ordre,1);
-      for j:=1 to ordre do tmp[j,1]:=tmp[j,1]-b[i]*c[j,i]; { tmp=AV-lùV }
-      writeln(f,'V‚rification valeur propre nø',i,'  ',norme_sup(tmp,ordre,1));
+      for j:=1 to ordre do tmp[j,1]:=tmp[j,1]-b[i]*c[j,i]; { tmp=AV-lâˆ™V }
+      writeln(f,'VÃ©rification valeur propre nÂ°',i,'  ',norme_sup(tmp,ordre,1));
     end;
     writeln(f,'                 * * * * * * * * * * * * * * * * * * * * * *');
     close(f);
   until false;
-end.
+end.

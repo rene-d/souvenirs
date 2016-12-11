@@ -28,4 +28,4 @@ begin
   reset(fic);
   read(fic,crible);
   close(fic);
-end.
+end.

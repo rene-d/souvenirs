@@ -55,4 +55,3 @@ end; { PD }
       doline((YMaxGlb+1) and 7);
     writeln(lst,^['2');
   end;
-

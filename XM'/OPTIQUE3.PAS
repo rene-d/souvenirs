@@ -52,7 +52,7 @@ begin
     readln (f1);
     write('Largeur de la fente de cellule:');
     readln (f2);
-    write ('abscisse extreme droite de l''Šcran:');
+    write ('abscisse extreme droite de l''Ã¨cran:');
     readln (xe2);
     xe1:=-xe2 ;
     s1 := -0.5*f1;
@@ -61,7 +61,7 @@ begin
     readln (sig2);
     write ('limite minimale du nombre d''onde:');
     readln (sig1);
-    write ('facteur d''intensitŠ:');
+    write ('facteur d''intensitÃ¨:');
     readln (Ki);
     write('sig01=');
     readln (sig01);
@@ -71,9 +71,9 @@ begin
     readln(L01);
     write ('L02=');
     readln (L02);
-    write ('largeur premiŠre raie =');
+    write ('largeur premiÃ¨re raie =');
     readln (c1);
-    write ('largeur deuxiŠme raie =');
+    write ('largeur deuxiÃ¨me raie =');
     readln (c2);
 
     initgraphique;
@@ -136,4 +136,4 @@ begin
     if (l = 1) then begin
         hardcopy (false);
     end;
-end.
+end.

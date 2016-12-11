@@ -23,17 +23,17 @@ Begin
    writeln('sig1=',sig1:8:6);
    sig2:=sig0+deltasig*0.5;
    writeln('sig2=',sig2:8:6);
-   writeln('centre de la premiäre raie:');
+   writeln('centre de la premi√®re raie:');
    readln(sig01);
-   writeln('centre de la deuxiäme raie:');
+   writeln('centre de la deuxi√®me raie:');
    readln(sig02);
-   write('luminance maximale premiäre raie:');
+   write('luminance maximale premi√®re raie:');
    readln(L01);
-   write('luminance maximale deuxiäme raie:');
+   write('luminance maximale deuxi√®me raie:');
    readln(L02);
-   write('coefficient d''etendue premiäre raie:');
+   write('coefficient d''etendue premi√®re raie:');
    readln(c1);
-   write('coefficient d''ätendue deuxiäme raie:');
+   write('coefficient d''√®tendue deuxi√®me raie:');
    readln(c2);
 
      initgraphique;
@@ -64,4 +64,3 @@ Begin
         hardcopy(false);
      end;
   end.
-

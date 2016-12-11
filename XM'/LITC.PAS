@@ -52,7 +52,7 @@ begin
       intr($13,regs);
       if flags and 1=1 then
       begin
-        write('erreur d''accŠs nø',ah,'  : ');
+        write('erreur d''accÃ¨s nÂ°',ah,'  : ');
         case ah of
           $80 : writeln('Time-out');
         else writeln('???');
@@ -217,7 +217,7 @@ begin
   end;
 end;
 
-function cherche(s:string):boolean;   { cherche une chaŒne dans un secteur }
+function cherche(s:string):boolean;   { cherche une chaÃ®ne dans un secteur }
 var i,p:word;
 begin
   for p:=0 to 511-length(s) do
@@ -262,7 +262,7 @@ begin
     writeln('------------------------------------------------------------------');
     writeln('|                       TABLE DE PARTITION                       |');
     writeln('------------------------------------------------------------------');
-    writeln('|No|type      |status    |d‚but     |fin       |premier |nombres |');
+    writeln('|No|type      |status    |dÃ©but     |fin       |premier |nombres |');
     writeln('------------------------------------------------------------------');
     for i:=0 to 3 do
     begin
@@ -324,7 +324,7 @@ begin
 
 
   { writeln(to_word($20)+to_word($22)*$10000);  { dos 4.0 : nb total de secteurs }
-  { writeln(to_word($1c)+to_word($1e)*$10000);  { dos 4.0 : nb de secteurs sp‚ciaux }
+  { writeln(to_word($1c)+to_word($1e)*$10000);  { dos 4.0 : nb de secteurs spÃ©ciaux }
 
   if affichage_boot then
   begin
@@ -340,15 +340,15 @@ writeln('adresse de la routine boot                 : $',hexa(4,bboot[1]+2))
     for i:=0 to 7 do write(char(bboot[i+3])); writeln;
     writeln('octets par secteur                         : ',to_word(11));
     writeln('secteurs par cluster                       : ',bboot[13]);
-    writeln('nombre de secteurs r‚serv‚s                : ',to_word(14));
+    writeln('nombre de secteurs rÃ©servÃ©s                : ',to_word(14));
     writeln('nombre de copies de la FAT                 : ',bboot[16]);
-    writeln('nombre d''entr‚es dans le r‚pertoire racine : ',to_word(17));
+    writeln('nombre d''entrÃ©es dans le rÃ©pertoire racine : ',to_word(17));
     writeln('nombre total de secteurs                   : ',to_word(19));
     write('descripteur de support (ID)                : $',hexa(2,bboot[21]));
     if bboot[21]=$f8 then writeln(' (disque dur)') else writeln;
     writeln('nombre de secteurs par FAT                 : ',to_word(22));
     writeln('nombre de secteurs par piste               : ',to_word(24));
-    writeln('nombre de tˆtes de lecture/‚criture        : ',to_word(26));
+    writeln('nombre de tÃªtes de lecture/Ã©criture        : ',to_word(26));
     writeln('premier secteur                            : ',to_word(28));
     writeln;
   end;
@@ -374,7 +374,7 @@ begin
   read_abs(first_sec+n_reserv+n);
 end;
 
-function read_fat(n:word):word; { n=num‚ro de cluster entre 2 et ??? }
+function read_fat(n:word):word; { n=numÃ©ro de cluster entre 2 et ??? }
 begin
   read_sec_fat(n*2 div bytes_by_sec);
   read_fat:=buf[n*2 mod bytes_by_sec]+256*buf[n*2 mod bytes_by_sec+1];
@@ -398,7 +398,7 @@ begin
   writeln('nombre de cylindres par face    : ',cyl_by_side);
   writeln('nombre de secteurs par cylindre : ',sec_by_cyl);
   writeln('nombre total de secteurs        : ',sectors);
-  writeln('capacit‚ totale en octets       : ',sectors*bytes_by_sec,' (',
+  writeln('capacitÃ© totale en octets       : ',sectors*bytes_by_sec,' (',
      (sectors*bytes_by_sec div 1024)/1024:0:2,' Mo)');
   writeln;
   writeln('secteurs par cluster            : ',sec_by_clu);
@@ -519,7 +519,7 @@ var
   s,i,nf:word;
 begin
   nf:=0;
-  writeln('R‚pertoire ROOT (i.e.: C:\) :');
+  writeln('RÃ©pertoire ROOT (i.e.: C:\) :');
   writeln;
   for s:=0 to ((files_in_root*32) div bytes_by_sec)-1 do
   begin
@@ -546,7 +546,7 @@ begin
   if n<2 then dir_root
   else begin
     nf:=0;
-    writeln('Sous-r‚pertoire :');
+    writeln('Sous-rÃ©pertoire :');
     writeln;
     while n<$fff0 do
     begin
@@ -634,4 +634,3 @@ assign(f,'a:s-boot-1');
 rewrite(f); write(f,buf);
 close(f);
 end.
-

@@ -21,7 +21,7 @@ begin
   x:=getmaxx div 2;
   y:=getmaxy div 2;
   p:=0; n:=2; i:=1;   { on commence par n=2 : premier nombre premier }
-{ putpixel(x-1,y,2);  { point oó serait le nombre 1 (i.e. : centre)  }
+{ putpixel(x-1,y,2);  { point o√π serait le nombre 1 (i.e. : centre)  }
   repeat
     for j:=1 to i do begin prem; dec(y); end;
     inc(i);
@@ -36,4 +36,3 @@ begin
   writeln('nombres ',n);
   writeln('points  ',p);
 end.
-

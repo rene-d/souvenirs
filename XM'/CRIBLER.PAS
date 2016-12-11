@@ -5,7 +5,7 @@ interface
 uses crt;
 
 const
-  n= 700;    (* d‚termine le nombre de nb premiers … calculer *)
+  n= 700;    (* dÃ©termine le nombre de nb premiers Ã  calculer *)
 
 function premier(e:longint):boolean;
 
@@ -126,4 +126,3 @@ begin
   end;
 end.
 
-

@@ -28,4 +28,3 @@ begin
         wght[nps+1-i] := wght[i];
     end;
 end;
-

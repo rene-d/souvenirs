@@ -37,7 +37,7 @@ begin
   writeln('Entrez la matrice ligne par ligne.');
   for i:=1 to l do
   begin
-    writeln(#13#10,'ligne nø',i:2,' :');
+    writeln(#13#10,'ligne nÂ°',i:2,' :');
     for j:=1 to c do
     begin
       write('(ligne ',i:2,') colonne ',j:2,' : ');
@@ -50,10 +50,10 @@ end;
 procedure entree_symetrique;
 var i,j:word;
 begin
-  writeln('Entrez la matrice sym‚trique ligne par ligne.');
+  writeln('Entrez la matrice symÃ©trique ligne par ligne.');
   for i:=1 to n do
   begin
-    writeln(#13#10,'ligne nø',i,'  (',n+1-i,' colonnes)');
+    writeln(#13#10,'ligne nÂ°',i,'  (',n+1-i,' colonnes)');
     for j:=i to n do
     begin
       write('(ligne ',i:2,') colonne ',j:2,' : ');
@@ -168,4 +168,3 @@ end;
 
 
 end.
-

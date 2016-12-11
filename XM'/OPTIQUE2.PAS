@@ -60,11 +60,11 @@ ask('distance entre les fentes d''Young',b);
 ask('distance focale de la lentille d''observation',D);
 ask('distance focale de la lentille collimatrice',D0);
 ask('largeur de la fente source',f1);
-ask('largeur de la fente r‚ceptrice',f2);
-ask('abscisse extrˆme droite de la fente r‚ceptrice',xe2);
+ask('largeur de la fente rÃ©ceptrice',f2);
+ask('abscisse extrÃªme droite de la fente rÃ©ceptrice',xe2);
 ask('nombre d''onde (1/lambda)',sig0);
 ask('deltasig',deltasig);
-ask('facteur d''intensit‚',Ki);
+ask('facteur d''intensitÃ©',Ki);
 
     nps := 6;
     weight (nps, pts, wght);
@@ -128,4 +128,4 @@ ask('facteur d''intensit‚',Ki);
     if (l = 1) then begin
         hardcopy (false);
     end;
-end.
+end.

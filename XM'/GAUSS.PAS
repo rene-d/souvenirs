@@ -14,4 +14,4 @@ begin
         int := int + f(v)*wght[i];
     end;
     gauss := int*slope;
-end;
+end;

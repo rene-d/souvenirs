@@ -1,4 +1,4 @@
-{ dÇfinition des types }
+{ d√©finition des types }
 
 {$i math}
 
@@ -10,10 +10,10 @@ type
   coef__=array[1..5000] of real;
   matrice=object
     l,c:word;
-    octets:word; { taille en octets du tableau coef^, pour contrìle d'existence }
+    octets:word; { taille en octets du tableau coef^, pour contr√¥le d'existence }
     coef:^coef__;
-    constructor init(li,co:word); { crÇe une matrice (li,co) }
-    constructor init_id(n:word); { crÇe la matrice-identitÇ (n,n) }
+    constructor init(li,co:word); { cr√©e une matrice (li,co) }
+    constructor init_id(n:word); { cr√©e la matrice-identit√© (n,n) }
     constructor init_dup(var source:matrice);
     constructor init_prod(var A,B:matrice);
     constructor init_somme(var A,B:matrice);
@@ -246,7 +246,7 @@ var
 begin
   if (A.estcarre=false) or (A.existe=false) or (A.estsymetrique=false) then
   begin
-    writeln('Cholesky ne travaille que sur des matrices carrÇes symÇtriques');
+    writeln('Cholesky ne travaille que sur des matrices carr√©es sym√©triques');
     possible:=false;
     exit;
   end;
@@ -263,16 +263,16 @@ begin
     if A2.rcoef(k,k)<epsilon then
     begin
       possible:=false;
-      L.done; { efface la matrice L de la mÇmoire }
+      L.done; { efface la matrice L de la m√©moire }
     end
     else begin
-      { nouvelle colonne de L obtenue Ö la k-iäme Çtape }
+      { nouvelle colonne de L obtenue √† la k-i√®me √©tape }
       racine:=sqrt(A2.rcoef(k,k));
       for i:=1 to k-1 do L.scoef(i,k,0.0);
       L.scoef(k,k,racine);
       for i:=k+1 to n do L.scoef(i,k,A2.rcoef(i,k)/racine);
 
-      { nouvelle matrice A obtenue Ö la k-iäme Çtape }
+      { nouvelle matrice A obtenue √† la k-i√®me √©tape }
       { 1. manipulation sur les lignes }
       for j:=k to n do A2.scoef(k,j,A2.rcoef(k,j)/racine);
       for i:=k+1 to n do
@@ -331,4 +331,3 @@ begin
     tL.done;
   end;
 end.
-

@@ -6,4 +6,4 @@ compiler:
 script:
   - cd pi/c
   - make
-  - echo 100 | ./gausshex
+  - echo -n "100\nO\n" | ./gausshex

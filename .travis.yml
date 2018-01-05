@@ -1,0 +1,9 @@
+language: c
+
+compiler: 
+  - gcc
+
+script:
+  - cd pi/c
+  - make
+  - echo 100 | ./gausshex

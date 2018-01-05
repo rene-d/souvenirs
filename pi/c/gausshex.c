@@ -42,7 +42,7 @@ void    affiche(word *reel, FILE *stream); 	/* affiche un nombre réel */
 void    temps(double diff);         		/* affiche le chronomètre */
 
 
-void main(void)
+int main(int argc, char *argv[])
 {
     /* variables */
     /*-----------*/
@@ -78,10 +78,15 @@ void main(void)
     printf("pi/4 = 12 Arctan 1/18 + 8 Arctan 1/57 - 5 Arctan 1/239\n");
     printf("(c) René DEVICHI octobre 1991 - v1.2 Turbo C++\n\n");
 
-    do {
-        printf("Nombre de tranches de 4 décimales à calculer : ");
-	scanf("%d",&nbdec);
-    } while ((nbdec<10) || (nbdec>30000));
+    if (argc >= 2) {
+	    nbdec = atoi(argv[1]);
+    }
+    else {
+        do {
+            printf("Nombre de tranches de 4 décimales à calculer : ");
+            scanf("%d",&nbdec);
+        } while ((nbdec<10) || (nbdec>30000));
+    }
 
 
     /* réserve de la mémoire pour les variables */
@@ -266,13 +271,21 @@ void main(void)
     affiche(pidec, stream);
     fclose(stream);
 
-
-    printf("\nAffichage de pi (O/N) ? ");
-    fflush(stdin);              /* vide d'eventuelles frappes parasites */
-    if (((ouinon=getc(stdin))=='O') || (ouinon=='o'))
-        affiche(pidec, stdout);	/* affiche le résultat si demandé */
+    if (argc >= 3) {
+        if (strchr("Oo", argv[2][0]) != NULL) {
+	    affiche(pidec, stdout);	/* affiche le résultat si demandé */
+        }
+    }
+    else {
+	    printf("\nAffichage de pi (O/N) ? ");
+	    fflush(stdin);              /* vide d'eventuelles frappes parasites */
+	    if (((ouinon=getc(stdin))=='O') || (ouinon=='o'))
+		affiche(pidec, stdout);	/* affiche le résultat si demandé */
+    }	     
 
     printf("\n");
+
+    return 0;
 }
 
 
